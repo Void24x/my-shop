@@ -20,7 +20,7 @@ router.get("/accounts", (req, res) => {
   const q = `SELECT date, opening_balance, closing_balance FROM my_shop.accounts ORDER BY date DESC LIMIT 2`;
   db.query(q, (error, data) => {
     if (error) {
-      console.error("Error storing data:", error);
+      console.error("Error fetching data:", error);
       return res
         .sendStatus(500)
         .json({ error: "Error fetching current balance." }); // Internal server error
